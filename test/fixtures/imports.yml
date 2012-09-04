@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  position: 1
+  reportto: 1
+  firstname: MyString
+  lastname: MyString
+  positiontitle: MyText
+
+two:
+  position: 1
+  reportto: 1
+  firstname: MyString
+  lastname: MyString
+  positiontitle: MyText

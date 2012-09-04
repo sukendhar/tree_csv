@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<%= javascript_include_tag('jquery.tree','jquery.treecheckbox','jquery.treecollapse','jquery.treeselect','jquery.treeview')%>
+<%= stylesheet_link_tag('jquery.tree','jquery-ui','jquery.treeview.css')%>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $( "#accordion" ).accordion({
+          'collapsible': true,
+          'active': -1
+      });
+      $('.jquery').each(function() {
+          eval($(this).html());
+      });
+      $('.button').button();
+  });
+</script>
+</head>
+<body>
+<h1>Listing imports</h1>
+	<%= form_tag importCsv_employees_path, :method => 'post', :multipart => true do %>
+		<p>
+			Select File: 
+			<%= file_field_tag 'file' %>
+			<%= submit_tag 'Upload data', :name => nil %>
+		</p>
+	<% end %>  
+  <div id="example-3">
+	<script class="jquery" lang="text/javascript">
+      $('#example-3 div').tree({
+          components: ['checkbox', 'collapse'],
+          onCheck: {
+              node: 'expand'
+          },
+          onUncheck: {
+              node: 'collapse'
+          }
+      });
+  </script>
+  
+	<div id="example-3 div">
+    <%= display_categories(@employees) %>
+  </div>
+	
+</body>
+</html>
+

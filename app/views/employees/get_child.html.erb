@@ -1,0 +1,33 @@
+
+<% @childs.each do |child| %>	
+	<ul>
+		<li class="collapsed"><input type="checkbox"><span><b><%= link_to child.first_name, "#", :class => "tree", :id => "#{child.position}" %> <%= child.last_name %>&nbsp;(<%= child.position_title %>)</b></span>
+		<div id="childs1"></div>
+	</ul>
+<% end %>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$(".tree").click(function(event){      
+      	var targetId = event.target.id;								
+				$.ajax({
+							type: "POST",
+              url: '/employees/get_child',
+              data: { position: targetId},              
+              cache: false,
+              beforeSend: function( ) {
+                $('#loading').append("loading...");
+              },
+              success: function(html){
+                $('#loading').empty();
+                $('#childs1').append(html); 
+               },
+              error: function( ) {
+                $('#loading').append("...error loading...");
+              }
+            });
+    	});    		
+    });
+</script>
+

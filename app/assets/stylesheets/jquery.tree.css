@@ -1,0 +1,23 @@
+.daredevel-tree li {
+    list-style-type: none;
+    position: relative;
+}
+
+.daredevel-tree li span.daredevel-tree-label {
+    cursor: pointer;
+}
+
+.daredevel-tree li span.daredevel-treecollapse-anchor {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: -16px;
+}
+
+.daredevel-tree-contextmenu {
+    list-style-type: none;
+    position: absolute;
+    background: #fff;
+    display: none;
+}
+
